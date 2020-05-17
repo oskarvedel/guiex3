@@ -85,6 +85,10 @@
                     <md-textarea v-model="model.comment"/>
             </md-field>
 
+            <md-field>
+                    <label>Password</label>
+                    <md-input type="password" v-model="model.password"/>
+            </md-field>
             </md-content>
            
                 <md-button type="submit">Add New Model</md-button>
@@ -115,6 +119,7 @@
                     hairColor: "",
                     eyeColor: "",
                     comments: "",
+                    password:""
                 }
         }),
         methods: {
@@ -123,7 +128,8 @@
                 this.model.shoeSize = parseInt(this.model.shoeSize);
                 var url = "https://localhost:44368/api/Models";
                 var data = {
-                    "firstName": this.firstName,
+                        "model" :this.model
+                    /*"firstName": this.firstName,
                     "lastName": this.lastName,
                     "email": this.email,
                     "phoneNo": this.phoneNo,
@@ -138,7 +144,7 @@
                     "shoeSize": this.shoeSize,
                     "hairColor": this.hairColor,
                     "eyeColor": this.eyeColor,
-                    "comments": this.comments
+                    "comments": this.comments*/
                 };
                 fetch(url, {
                     method: 'POST',
@@ -148,7 +154,11 @@
                         'Authorization': 'Bearer ' + localStorage.getItem("token"),
                         'Content-Type': 'application/json'
                     }
+                
                 })
+                .catch(error=> thisconsole.error('Error:', error))
+                }
+                /*
                 .then(responseJson =>{
                     var items = JSON.parse(responseJson);
 
@@ -157,7 +167,7 @@
                     isLoading: false,
                     message: 'Something bad happened' + error
                 }))
-                } 
+                } */
 
         }
     }
