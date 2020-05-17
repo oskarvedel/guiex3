@@ -38,6 +38,8 @@ yarn-error.log*
 .vscode
 *.suo
 *.ntvs*
+*.njsproj
+*.sln
 *.sw*
 
 
@@ -396,3 +398,5 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+**/appsettings.json
+appsettings.json
