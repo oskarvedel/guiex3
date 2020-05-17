@@ -44,6 +44,7 @@ namespace ModelsApi.Controllers
         [HttpPost("login"), AllowAnonymous]
         public async Task<ActionResult<Token>> Login([FromBody]Login login)
         {
+            Console.WriteLine("user trying to log in");
             if (login != null)
             {
                 login.Email = login.Email.ToLowerInvariant();
