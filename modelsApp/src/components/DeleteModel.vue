@@ -8,7 +8,7 @@
         </md-card-header>
         <md-card-content>
             <md-field>
-              <md-select v-model="ChosenJob" v-on:click="findJob">
+              <md-select placeholder="Job" v-model="ChosenJob" v-on:click="findJob">
                 <md-option disabled value="">Vælg Job</md-option>
                 <md-option v-for="job in jobs" :key="job.efJobId" v-bind:value="job.efJobId">{{job.customer}}</md-option>
               </md-select>
@@ -20,20 +20,19 @@
 
   <form @submit.prevent="DeleteModelFunc">
     <md-card>
-      <md-card-header>
-        <div>SLet den fucking model</div>
-      </md-card-header>
+
       <md-card-content>
-        <!--<div v-if ="(jobModels.models != 0)&&(jobModels.models > 0)">-->
         <md-field>
-          <select v-model="ChosenModel">
-            <option v-for="model in jobModels.models" :key="model.email" v-bind:value="model.email">{{model.firstName}}</option>
+          <select placeholder="Model" v-model="ChosenModel">
+            <option disabled value="">Vælg Model</option>
+            <option v-for="model in jobModels.models" :key="model.efModelId" v-bind:value="model.efModelId">{{model.efModelId}}</option>
           </select>
         </md-field>
-        <!--</div>
-        <div v-else>
-          <div class="md-caption">Der er sgu ingen modeller</div>
-        </div>-->
+       
+        <md-card-actions>
+          <md-button type="submit" class="md-raised">Slet Model fra Job!</md-button>
+        </md-card-actions>
+
       </md-card-content>
     </md-card>
     
@@ -48,7 +47,6 @@
       ChosenModel: 1,
       ChosenJob: 1,
       jobs: null,
-      models: null,
       jobModels: ({
         models: []
       }),
@@ -61,6 +59,18 @@
 
     methods: {
 
+      DeleteModelFunc() {
+         fetch("https://localhost:44368/api/jobs/" + this.ChosenJob + '/model/' + this.ChosenModel, {
+             method: 'DELETE',
+             credentials: 'include',
+             headers: new Headers({
+              'Authorization': 'Bearer ' + localStorage.getItem("token"),
+              'Content-Type': 'application/json'
+             })
+             }).then(responseJson => responseJson.json())
+               .then(data => {
+                    this.jobModels = data}).catch(error => alert("Det går galt!!!" + error));
+      },
 
       findJob()
       {
@@ -78,17 +88,17 @@
 
       loadData() {
 
-        var url2 = "https://localhost:44368/api/models/";
-        fetch(url2, {
-        method: 'GET', // Or POST, PUT, DELETE
-        credentials: 'include',
-        headers: {
-            'Authorization': 'Bearer ' + localStorage.getItem("token"),
-            'Content-Type': 'application/json'
-                  }
-        }).then(responseJson => responseJson.json())
-          .then(data => {this.models = data 
-         }).catch(error => alert("Det går galt!" + error));
+        //var url2 = "https://localhost:44368/api/models/";
+        //fetch(url2, {
+        //method: 'GET', // Or POST, PUT, DELETE
+        //credentials: 'include',
+        //headers: {
+        //    'Authorization': 'Bearer ' + localStorage.getItem("token"),
+        //    'Content-Type': 'application/json'
+        //          }
+        //}).then(responseJson => responseJson.json())
+        //  .then(data => {this.models = data 
+        // }).catch(error => alert("Det går galt!" + error));
 
         var url = "https://localhost:44368/api/jobs";
         fetch(url, {
