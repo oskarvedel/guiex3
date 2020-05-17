@@ -10,15 +10,20 @@
                         <label>Date</label>
                         <md-datepicker v-model="date" />
                     </md-field>
+            
+                    <md-field>
+                        <label>Job Date</label>
+                        <md-datepicker v-model="JobId" />
+                    </md-field>
 
                     <md-field>
                         <label>Text</label>
-                        <md-input v-model="text" />
+                        <md-input v-model="Text" />
                     </md-field>
 
                     <md-field>
                         <label>Amount</label>
-                        <md-input v-model="amount" />
+                        <md-input v-model="Amount" />
                     </md-field>
 
                 </md-content>
@@ -32,23 +37,28 @@
 </template>
 
 <script>
+
     export default {
-        name: 'CreateNewManager',
+        name: 'AddExpenses',
         data: () => ({
+            ModelId:'',
+            JobId:'',
             date:'',
-            text: '',
-            amount: ''
+            Text: '',
+            Amount: ''
         }),
 
+
         methods: {
+            
             AddExpenses() {
                 var url = "https://localhost:44368/api/Expenses";
                 var data = {
-                    "modelid": parseInt(this.modelid),
-                    "jobid": parseInt(this.jobid),
+                    "modelid": parseInt(this.ModelId),
+                    "jobid": parseInt(this.JobId),
                     "date": this.date,
-                    "text": this.manageremail,
-                    "amount": parseFloat(this.amount)
+                    "text": this.Text,
+                    "amount": parseFloat(this.Amount)
                 };
                 fetch(url, {
                     method: 'POST',
