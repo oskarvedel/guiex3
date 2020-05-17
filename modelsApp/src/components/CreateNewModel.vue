@@ -51,7 +51,7 @@
 
             <md-field>
                     <label>Birthdate</label>
-                    <md-input v-model="BirthDate" type="date"/>
+                    <md-datepicker v-model="BirthDate"/>
             </md-field>
 
             <md-field>
