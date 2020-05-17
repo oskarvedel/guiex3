@@ -87,7 +87,7 @@
 
             </md-content>
            
-                <md-button type="submit">Add New Model</md-button>
+                <md-button type="submit" class="md-raised">Add New Model</md-button>
 
         </form>    
     </div>

@@ -24,7 +24,7 @@
                     </md-card-content>
 
                     <md-card-actions>
-                        <md-button type="submit">Login</md-button>
+                        <md-button type="submit" class="md-raised">Login</md-button>
                     </md-card-actions>
 
 
@@ -40,8 +40,8 @@
     export default {
         name: 'login',
         data: () => ({
-            UserName: 'UserName',
-            PassWord: 'Password'
+            UserName: '',
+            PassWord: ''
         }),
 
         methods:
