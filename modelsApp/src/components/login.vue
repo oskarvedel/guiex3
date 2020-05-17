@@ -40,8 +40,8 @@
     export default {
         name: 'login',
         data: () => ({
-            UserName: 'UserName',
-            PassWord: 'Password'
+            UserName: '',
+            PassWord: ''
         }),
 
         methods:
@@ -50,9 +50,9 @@
                         
                         var url = 'https://localhost:44368/api/Account/login';
                         var data = {
-                            email: this.UserName,
+                            Email: this.UserName,
                             Password: this.PassWord,
-                            OldPassword: this.PassWord
+                            //OldPassword: this.PassWord
                         };
 
                         fetch(url, {
