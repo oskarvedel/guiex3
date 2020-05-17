@@ -1,6 +1,6 @@
 <template>
   <div class="md-layout-item">
-    <form @submit="createJob">
+    <form @submit.prevent="createJob">
       <md-card class="md-layout-item">
         <md-card-header>
           <div class="md-title">Create New Job</div>
@@ -36,8 +36,8 @@
           <md-button type="submit" class="md-raised">Add New Job</md-button>
         </md-card-actions>
       </md-card>
+      <p>{{statusMsg}}</p>
     </form>
-    <p>{{statusMsg}}</p>
   </div>
 </template>
 
@@ -70,12 +70,12 @@
             'Content-Type': 'application/json'
           }})
             .then(res => {
-              if(res.status == 200)
+              if(res.status != 201)
               {
                 this.statusMsg = 'Error';
               }
               else{
-                this.statusMsg = 'Succesfully created job';
+                this.statusMsg = 'Created job';
               }
             })
           .catch(error => this.setState({

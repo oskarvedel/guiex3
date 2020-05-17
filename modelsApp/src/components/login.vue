@@ -41,9 +41,9 @@
           .then((token) => {
             localStorage.setItem("token", token.jwt);
             if (token.jwt != undefined)
-              this.statusMsg = 'Successful';
+              this.statusMsg = 'Logged in';
             else {
-              this.statusMsg = 'Unsuccessful';
+              this.statusMsg = 'Error';
             }
           })
           .catch(error => console.error('Error:', error));
