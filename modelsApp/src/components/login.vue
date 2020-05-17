@@ -1,18 +1,28 @@
 <template>
-  <div class="container" style="margin-top:20px;">
-    <h2>Log in</h2>
-    <div class="card">
-      <div class="container">
-        <input v-model="username" class="input" type="text" placeholder="Email">
-      </div>
-      <div class="container">
-        <input v-model="password" class="input" type="password" placeholder="Password">
-      </div>
-      <div class="container">
-        <button @click="login" style="margin:5px; margin-bottom:10px">Login</button>
-        <p>{{statusMsg}}</p>
-      </div>
-    </div>
+  <div class="md-layout-item">
+    <form @submit.prevent="logIn">
+      <md-card class="md-layout-item">
+        <md-card-header>
+          <div class="md-title">Log in</div>
+        </md-card-header>
+        <md-content>
+          <md-field>
+            <label>username</label>
+            <md-input v-model="username"/>
+          </md-field>
+
+          <md-field>
+            <label>password</label>
+            <md-input v-model="password" type="password"/>
+          </md-field>
+
+        </md-content>
+        <md-card-actions>
+          <md-button type="submit" class="md-raised">Log in</md-button>
+        </md-card-actions>
+      </md-card>
+    </form>
+    <p>{{statusMsg}}</p>
   </div>
 </template>
 
@@ -27,7 +37,7 @@
       }
     },
     methods: {
-      login() {
+      logIn() {
         fetch('https://localhost:44368/api/Account/login', {
           method: 'POST',
           body: JSON.stringify({

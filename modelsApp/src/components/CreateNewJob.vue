@@ -36,8 +36,8 @@
           <md-button type="submit" class="md-raised">Add New Job</md-button>
         </md-card-actions>
       </md-card>
-      <p>{{statusMsg}}</p>
     </form>
+    <p>{{statusMsg}}</p>
   </div>
 </template>
 
@@ -68,16 +68,15 @@
           headers: {
             'Authorization': 'Bearer ' + localStorage.getItem("token"),
             'Content-Type': 'application/json'
-          }})
-            .then(res => {
-              if(res.status != 201)
-              {
-                this.statusMsg = 'Error';
-              }
-              else{
-                this.statusMsg = 'Created job';
-              }
-            })
+          }
+        })
+          .then(res => {
+            if (res.status != 201) {
+              this.statusMsg = 'Created job';
+            } else {
+              this.statusMsg = 'Error';
+            }
+          })
           .catch(error => this.setState({
             isLoading: false,
             message: 'Something bad happened ' + error
