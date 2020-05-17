@@ -17,7 +17,7 @@
 
             <md-field>
                     <label>Email</label>
-                    <md-input v-model="Email"/>
+                    <md-input v-model="Email" type="email"/>
             </md-field>
 
             <md-field>
@@ -52,7 +52,7 @@
 
             <md-field>
                     <label>Birthdate</label>
-                    <md-input v-model="BirthDate"/>
+                    <md-input v-model="BirthDate" type="date"/>
             </md-field>
 
             <md-field>
@@ -62,12 +62,12 @@
 
             <md-field>
                     <label>Height</label>
-                    <md-input v-model="Height"/>
+                    <md-input v-model="Height" type=""/>
             </md-field>
 
             <md-field>
                     <label>Shoesize</label>
-                    <md-input v-model="ShoeSize"/>
+                    <md-input v-model="ShoeSize" type="number"/>
             </md-field>
 
             <md-field>
