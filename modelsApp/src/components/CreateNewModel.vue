@@ -2,7 +2,6 @@
     <div class="md-layout-item">
         <form
               @submit.prevent="createnewmodel">
-        
                 <div class="md-title">Create New Model</div>
             <md-content>
             <md-field>
@@ -90,10 +89,10 @@
                     <md-input type="password" v-model="Password"/>
             </md-field>
             </md-content>
-           
+
                 <md-button type="submit">Add New Model</md-button>
 
-        </form>    
+        </form>
     </div>
 </template>
 
@@ -165,11 +164,11 @@
                 console.error(error);
             });
                 }
-        
+
         }
     }
 
-    
+
 
 </script>
 
