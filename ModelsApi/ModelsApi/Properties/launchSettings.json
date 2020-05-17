@@ -11,11 +11,10 @@
     "ModelsApi": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "/",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "https://localhost:44369;http://localhost:44368"
+      "applicationUrl": "https://localhost:44368"
     }
   }
 }
