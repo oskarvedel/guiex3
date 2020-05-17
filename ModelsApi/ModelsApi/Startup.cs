@@ -121,6 +121,7 @@ namespace ModelsApi
             });
 
             DbUtilities.SeedData(context);
+            Console.WriteLine("console out working");
         }
     }
 }

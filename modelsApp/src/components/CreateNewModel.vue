@@ -85,6 +85,10 @@
                     <md-textarea v-model="model.comment"/>
             </md-field>
 
+            <md-field>
+                    <label>Password</label>
+                    <md-input type="password" v-model="model.password"/>
+            </md-field>
             </md-content>
            
                 <md-button type="submit">Add New Model</md-button>
@@ -110,28 +114,60 @@
                     country: "",
                     birthDate: "",
                     nationality: "",
-                    height: "",
+                    height: 0,
                     shoeSize: 0,
                     hairColor: "",
                     eyeColor: "",
                     comments: "",
+                    password:""
                 }
         }),
         methods: {
-                createNewModelFunction(){
-                var url = "https://localhost:44368/api/Managers";
+                createmodel(){
+                this.model.height = parseInt(this.model.height);
+                this.model.shoeSize = parseInt(this.model.shoeSize);
+                var url = "https://localhost:44368/api/Models";
                 var data = {
-                    "model" : this.model
+                        "model" :this.model
+                    /*"firstName": this.firstName,
+                    "lastName": this.lastName,
+                    "email": this.email,
+                    "phoneNo": this.phoneNo,
+                    "addresLine1": this.addresLine1,
+                    "addresLine2": this.addresLine2,
+                    "zip": this.zip,
+                    "city": this.city,
+                    "country": this.country,
+                    "birthDate": this.birthDate,
+                    "nationality": this.nationality,
+                    "height": this.height,
+                    "shoeSize": this.shoeSize,
+                    "hairColor": this.hairColor,
+                    "eyeColor": this.eyeColor,
+                    "comments": this.comments*/
                 };
                 fetch(url, {
                     method: 'POST',
                     body: JSON.stringify(data),
                     credentials: 'include',
-                    headers: new Headers({
+                    headers: {
                         'Authorization': 'Bearer ' + localStorage.getItem("token"),
                         'Content-Type': 'application/json'
-                    })
-                }).catch(error => alert("Error!!! " + error))} 
+                    }
+                
+                })
+                .catch(error=> thisconsole.error('Error:', error))
+                }
+                /*
+                .then(responseJson =>{
+                    var items = JSON.parse(responseJson);
+
+                })
+                .catch(error => this.setState({
+                    isLoading: false,
+                    message: 'Something bad happened' + error
+                }))
+                } */
 
         }
     }
