@@ -58,11 +58,20 @@
                     method: 'POST',
                     body: JSON.stringify(data),
                     credentials: 'include',
-                    headers: new Headers({
+                    headers: {
                         'Authorization': 'Bearer ' + localStorage.getItem("token"),
                         'Content-Type': 'application/json'
-                    })
-                }).catch(error => alert("Error!!! " + error))
+                    }
+                })
+
+                .then(responseJson =>{
+                    var items = JSON.parse(responseJson);
+
+                })
+                .catch(error => this.setState({
+                    isLoading: false,
+                    message: 'Something bad happened' + error}))
+                
             }
         }
     }
