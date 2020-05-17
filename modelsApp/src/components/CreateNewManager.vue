@@ -63,19 +63,13 @@
                         'Content-Type': 'application/json'
                     }
                 })
-                  .then(res => {
-                    if(res.status == 200)
-                    {
-                      return res.json();
-                    }
-                  })
-                .then(responseJson =>{
+                  .then(responseJson => {
                     var items = JSON.parse(responseJson);
-
-                })
-                .catch(error => this.setState({
+                    })
+                    .catch(error => this.setState({
                     isLoading: false,
-                    message: 'Something bad happened' + error}))
+                        message: 'Something bad happened ' + error
+                }));
 
             }
         }

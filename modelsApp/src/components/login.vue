@@ -64,4 +64,9 @@
 
 
 <style scoped>
+  .md-layout-item {
+    position: relative;
+    height: 450px;
+    width: 400px;
+  }
 </style>
