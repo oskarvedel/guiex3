@@ -2,13 +2,10 @@
     <div class="md-layout">
         <md-card>
             <md-card-header>
-             <div class="md-title">Job List</div>
+             <div class="md-title">Job List Manager</div>
              </md-card-header>
         
             <md-card-content>
-              <!--<div v-for="job in jobs" :key="job.efJobId">
-                <p>{{job.customer}}</p>
-              </div>-->
               <md-table>
                 <md-table-row>
                   <md-table-head>Customer</md-table-head>
@@ -33,7 +30,7 @@
 
 <script>
   export default {
-    name: 'JobList',
+    name: 'JobListManager',
     data() {
       return {
         isLoading: true,
