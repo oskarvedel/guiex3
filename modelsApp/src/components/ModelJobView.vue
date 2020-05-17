@@ -14,15 +14,6 @@
                         <md-table-head>location</md-table-head>
                         <md-table-head>Comments</md-table-head>
                     </md-table-row>
-
-
-                    <md-table-row>
-                        <md-table-cell>Customrer</md-table-cell>
-                        <md-table-cell>en eller anden dag</md-table-cell>
-                        <md-table-cell>en milliard dafge</md-table-cell>
-                        <md-table-cell>et sted</md-table-cell>
-                        <md-table-cell>En dum kommentar</md-table-cell>
-                    </md-table-row>
                 </md-table>
             </md-card-content>
 
