@@ -24,16 +24,16 @@
         <div>SLet den fucking model</div>
       </md-card-header>
       <md-card-content>
-        <div v-if ="(jobModels.models != 0)&&(jobModels.models > 0)">
+        <!--<div v-if ="(jobModels.models != 0)&&(jobModels.models > 0)">-->
         <md-field>
-          <md-select v-model="ChosenModel">
-            <md-option v-for="model in jobModels.models" :key="model.email" v-bind:value="model.email">{{model.firstname}}</md-option>
-          </md-select>
+          <select v-model="ChosenModel">
+            <option v-for="model in jobModels.models" :key="model.email" v-bind:value="model.email">{{model.firstName}}</option>
+          </select>
         </md-field>
-        </div>
+        <!--</div>
         <div v-else>
           <div class="md-caption">Der er sgu ingen modeller</div>
-        </div>
+        </div>-->
       </md-card-content>
     </md-card>
     
@@ -50,9 +50,8 @@
       jobs: null,
       models: null,
       jobModels: ({
-          models: []
+        models: []
       }),
-      i: 0
     }),
 
     mounted() {
@@ -65,21 +64,22 @@
 
       findJob()
       {
-        fetch("https://localhost:44368/api/jobs/" + this.ChosenJob,{
-          method: 'GET',
-          credentials: 'include',
-          headers: new Headers({
-            'Authorization': 'Bearer' + localStorage.getItem("token"),
-            'Content-Type': 'application/json'
-          })
-        }).then(responseJson => responseJson.json())
-          .then(data => {this.jobModels = data }).catch(error => alert("Det går galt!" + error));
+        fetch("https://localhost:44368/api/jobs/" + this.ChosenJob, {
+             method: 'GET',
+             credentials: 'include',
+             headers: new Headers({
+              'Authorization': 'Bearer ' + localStorage.getItem("token"),
+              'Content-Type': 'application/json'
+             })
+             }).then(responseJson => responseJson.json())
+               .then(data => {
+                    this.jobModels = data}).catch(error => alert("Det går galt!!!" + error));
       },
 
       loadData() {
 
-        var url = "https://localhost:44368/api/models/";
-        fetch(url, {
+        var url2 = "https://localhost:44368/api/models/";
+        fetch(url2, {
         method: 'GET', // Or POST, PUT, DELETE
         credentials: 'include',
         headers: {
