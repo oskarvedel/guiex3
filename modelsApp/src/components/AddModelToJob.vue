@@ -37,7 +37,7 @@
       addModelToJob() {
         var url = "https://localhost:44368/api/Jobs/" + this.jobid + "/model/"+this.modelid;
         fetch(url, {
-          method: 'DELETE',  // Or POST, PUT, DELETE
+          method: 'POST',  // Or POST, PUT, DELETE
           body: JSON.stringify({
             modelId: this.modelid,
             jobId: this.jobid,
