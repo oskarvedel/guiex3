@@ -9,7 +9,7 @@
       <router-link to="/JobView">Job View</router-link> |
       <router-link to="/DeleteModel">Delete Model</router-link> |
       <router-link to="/AddExpenditure">Add Expenditure</router-link>|
-      <router-link to="/AddModelToJob">Add Model To Job</router-link>
+      <router-link to="/AddModelToJob">Add Model To Job</router-link> |
       <router-link to="/DeleteModelFromJob">Delete Model From Job</router-link>
     </nav>
 
