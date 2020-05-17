@@ -41,7 +41,7 @@
         }),
 
         methods: {
-            createNewManagerFunction() {
+            AddExpenses() {
                 var url = "https://localhost:44368/api/Expenses";
                 var data = {
                     "modelid": parseInt(this.modelid),
