@@ -1,5 +1,6 @@
 <template>
   <div class="container" style="margin-top:20px;">
+    <h2>Log in</h2>
     <div class="card">
       <div class="container">
         <input v-model="username" class="input" type="text" placeholder="Email">

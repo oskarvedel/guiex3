@@ -7,6 +7,7 @@ import Home from "./components/Home.vue"
 import CreateNewJob from "./components/CreateNewJob.vue"
 import JobView from "./components/JobView.vue"
 import DeleteModel from "./components/DeleteModel.vue"
+import AddModelToJob from "./components/AddModelToJob.vue"
 
 Vue.use(Router);
 
@@ -22,7 +23,7 @@ export default new Router({
     {
       path: "/login",
       name: "Login",
-      component: login
+      component: Log in
     },
     {
       path: "/CreateNewModel",
@@ -48,6 +49,11 @@ export default new Router({
       path: "/DeleteModel",
       name: "deleteModel",
       component: DeleteModel
+    },
+    {
+      path: "/AddModelToJob",
+      name: "addModelToJob",
+      component: AddModelToJob
     }
   ]
 });

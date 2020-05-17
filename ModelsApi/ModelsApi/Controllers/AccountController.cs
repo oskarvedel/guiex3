@@ -66,6 +66,7 @@ namespace ModelsApi.Controllers
                         }
                         var jwt = GenerateToken(account.Email, modelId, account.IsManager);
                         var token = new Token() { JWT = jwt };
+                        Console.WriteLine("user logged in");
                         return token;
                     }
                 }
