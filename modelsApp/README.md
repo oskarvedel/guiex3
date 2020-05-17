@@ -1,4 +1,4 @@
-# modelwebapp
+# modelsapp
 
 > A Vue.js project
 

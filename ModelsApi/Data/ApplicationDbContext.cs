@@ -10,7 +10,10 @@ namespace ModelsApi.Data
     public class ApplicationDbContext : DbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-                : base(options) { }
+            : base(options)
+        {
+
+        }
 
         public DbSet<EfAccount> Accounts { get; set; }
         public DbSet<EfJob> Jobs { get; set; }
