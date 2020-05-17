@@ -35,9 +35,9 @@
         <md-card-actions>
           <md-button type="submit" class="md-raised">Add New Job</md-button>
         </md-card-actions>
-
       </md-card>
     </form>
+    <p>{{statusMsg}}</p>
   </div>
 </template>
 
@@ -59,8 +59,8 @@
           method: 'POST',  // Or POST, PUT, DELETE
           body: JSON.stringify({
             customer: this.customer,
-            startDate: '2020-05-17T16:05:52.257Z',
-            days: this.days,
+            startDate: this.startDate,
+            days: parseInt(this.days),
             location: this.location,
             comment: this.comment
           }),
@@ -68,10 +68,16 @@
           headers: {
             'Authorization': 'Bearer ' + localStorage.getItem("token"),
             'Content-Type': 'application/json'
-          }
-        }).then(responseJson => {
-          var items = JSON.parse(responseJson);
-        })
+          }})
+            .then(res => {
+              if(res.status == 200)
+              {
+                this.statusMsg = 'Error';
+              }
+              else{
+                this.statusMsg = 'Succesfully created job';
+              }
+            })
           .catch(error => this.setState({
             isLoading: false,
             message: 'Something bad happened ' + error
@@ -82,4 +88,9 @@
 </script>
 
 <style scoped>
+  .md-layout-item {
+    position: relative;
+    height: 450px;
+    width: 400px;
+  }
 </style>
