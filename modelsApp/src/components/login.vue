@@ -48,7 +48,7 @@
                 {
                     loginfunction() {
                         
-                        var url = "/api/account/login";
+                        var url = 'https://localhost:44368/api/Account/login';
                         var data = {
                             email: this.UserName,
                             Password: this.PassWord,
