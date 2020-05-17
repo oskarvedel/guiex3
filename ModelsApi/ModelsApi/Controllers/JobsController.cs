@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System;
+using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -116,11 +117,14 @@ namespace ModelsApi.Controllers
         [Authorize(Roles = "Manager")]
         public async Task<ActionResult<Job>> PostJob(NewJob newJob)
         {
+            Console.WriteLine("trying to add job to db");
             var job = _mapper.Map<EfJob>(newJob);
             _context.Jobs.Add(job);
             await _context.SaveChangesAsync();
+            Console.WriteLine("job added to db");
             var jobDto = _mapper.Map<Job>(job);
             return CreatedAtAction("GetJob", new { id = job.EfJobId }, jobDto);
+            
         }
 
         // POST: api/Jobs
