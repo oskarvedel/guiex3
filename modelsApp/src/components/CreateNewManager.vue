@@ -47,7 +47,7 @@
 
         methods: {
             createNewManagerFunction() {
-                var url = "/api/Managers";
+                var url = "https://localhost:44368/api/Managers";
                 var data = {
                     "firstname": this.managerfirstname,
                     "lastname": this.managerlastname,

@@ -119,7 +119,7 @@
         }),
         methods: {
                 createNewModelFunction(){
-                var url = "/api/Models";
+                var url = "https://localhost:44368/api/Managers";
                 var data = {
                     "model" : this.model
                 };
