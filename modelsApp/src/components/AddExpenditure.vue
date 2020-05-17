@@ -7,13 +7,18 @@
                 </md-card-header>
                 <md-content>
                     <md-field>
-                        <label>Date</label>
-                        <md-datepicker v-model="date" />
+                        <label>Model Id</label>
+                        <md-input v-model="ModelId" />
+                    </md-field>
+
+                    <md-field>
+                        <label>Job Id</label>
+                        <md-input v-model="JobId" />
                     </md-field>
             
                     <md-field>
-                        <label>Job Date</label>
-                        <md-datepicker v-model="JobId" />
+                        <label>Date</label>
+                        <md-datepicker v-model="date" />
                     </md-field>
 
                     <md-field>
