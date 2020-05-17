@@ -6,7 +6,6 @@ import login from "./components/login.vue"
 import Home from "./components/Home.vue"
 import CreateNewJob from "./components/CreateNewJob.vue"
 import JobView from "./components/JobView.vue"
-import DeleteModel from "./components/DeleteModel.vue"
 import AddModelToJob from "./components/AddModelToJob.vue"
 import AddExpenditure from "./components/AddExpenditure"
 import DeleteModelFromJob from "./components/DeleteModelFromJob"
@@ -46,11 +45,6 @@ export default new Router({
       path: "/JobView",
       name: "jobView",
       component: JobView
-    },
-    {
-      path: "/DeleteModel",
-      name: "deleteModel",
-      component: DeleteModel
     },
     {
       path: "/AddModelToJob",

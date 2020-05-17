@@ -4,7 +4,6 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/login">Log In</router-link> |
       <router-link to="/CreateNewModel">Create New Model</router-link> |
-      <router-link to="/DeleteModel">Delete Model</router-link> |
       <router-link to="/CreateNewManager">Create New Manager</router-link> |
       <router-link to="/CreateNewJob">Create New Job</router-link> |
       <router-link to="/AddExpenditure">Add Expenditure</router-link> |
