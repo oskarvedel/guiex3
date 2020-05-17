@@ -1,18 +1,27 @@
 <template>
-  <div class="container" style="margin-top:20px;">
-    <h2>Add Model to Job</h2>
-    <div class="card">
-      <div class="container">
-        <input v-model="username" class="input" type="text" placeholder="Model">
-      </div>
-      <div class="container">
-        <input v-model="password" class="input" type="password" placeholder="Password">
-      </div>
-      <div class="container">
-        <button @click="login" style="margin:5px; margin-bottom:10px">Login</button>
-        <p>{{statusMsg}}</p>
-      </div>
-    </div>
+  <div class="md-layout-item">
+    <form @submit.prevent="addModelToJob">
+      <md-card class="md-layout-item">
+        <md-card-header>
+          <div class="md-title">Add Model To Job</div>
+        </md-card-header>
+        <md-content>
+          <md-field>
+            <label>Model Id</label>
+            <md-input v-model="modelid"/>
+          </md-field>
+
+          <md-field>
+            <label>Job Id</label>
+            <md-input v-model="jobid"/>
+          </md-field>
+        </md-content>
+        <md-card-actions>
+          <md-button type="submit" class="md-raised">Add Model To Job</md-button>
+        </md-card-actions>
+      </md-card>
+    </form>
+    <p>{{statusMsg}}</p>
   </div>
 </template>
 
@@ -20,37 +29,30 @@
   export default {
     data() {
       return {
-        customer: '',
-        startDate: '',
-        days: 0,
-        location: '',
-        comment: ''
+        modelid: '',
+        jobid: ''
       }
     },
     methods: {
-      createJob() {
-        var url = "https://localhost:44368/api/Jobs";
+      addModelToJob() {
+        var url = "https://localhost:44368/api/Jobs/" + this.jobid + "/model/"+this.modelid;
         fetch(url, {
-          method: 'POST',  // Or POST, PUT, DELETE
+          method: 'DELETE',  // Or POST, PUT, DELETE
           body: JSON.stringify({
-            customer: this.customer,
-            startDate: this.startDate,
-            days: parseInt(this.days),
-            location: this.location,
-            comment: this.comment
+            modelId: this.modelid,
+            jobId: this.jobid,
           }),
           credentials: 'include',
           headers: {
             'Authorization': 'Bearer ' + localStorage.getItem("token"),
             'Content-Type': 'application/json'
-          }})
+          }
+        })
           .then(res => {
-            if(res.status == 200)
-            {
+            if (res.status != 201) {
+              this.statusMsg = 'Model added to job';
+            } else {
               this.statusMsg = 'Error';
-            }
-            else{
-              this.statusMsg = 'Succesfully created job';
             }
           })
           .catch(error => this.setState({
