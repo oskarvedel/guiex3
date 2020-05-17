@@ -8,6 +8,7 @@ import CreateNewJob from "./components/CreateNewJob.vue"
 import JobView from "./components/JobView.vue"
 import DeleteModel from "./components/DeleteModel.vue"
 import AddModelToJob from "./components/AddModelToJob.vue"
+import AddExpenditure from "./components/AddExpenditure"
 
 Vue.use(Router);
 
@@ -54,6 +55,11 @@ export default new Router({
       path: "/AddModelToJob",
       name: "addModelToJob",
       component: AddModelToJob
+    },
+    {
+      path: "/AddExpenditure",
+      name: "addExpenditure",
+      component: AddExpenditure
     }
   ]
 });
