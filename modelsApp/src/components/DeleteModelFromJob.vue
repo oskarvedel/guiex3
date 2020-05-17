@@ -3,7 +3,7 @@
   <form @submit.prevent="deleteModelFromJob">
 <md-card class="md-layout-item">
   <md-card-header>
-<div class="md-title">Add Model To Job</div>
+<div class="md-title">Delete Model From Job</div>
 </md-card-header>
 <md-content>
 <md-field>
@@ -17,7 +17,7 @@
 </md-field>
 </md-content>
 <md-card-actions>
-<md-button type="submit" class="md-raised">Add Model To Job</md-button>
+<md-button type="submit" class="md-raised">Delete Model From Job</md-button>
 </md-card-actions>
 </md-card>
 </form>
