@@ -1,6 +1,6 @@
 <template>
     <div class="CreateNewManager">
-        <form @submit ="createNewManagerFunction">
+        <form @submit.prevent ="createNewManagerFunction">
             <md-card class="md-layout-item">
                 <md-card-header>
                     <div class="md-title">Create New Manager</div>
